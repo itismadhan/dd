@@ -9,12 +9,18 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SVProgressHUD
+
+protocol BusinessDelegate {
+    func updateBusinessList(businessList:Array<DDBusiness>)
+}
 
 class AddressViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     let pin = MKPointAnnotation()
+    var delegate:BusinessDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +59,12 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
             "lng" : long
         ]
         
-        self.dismiss(animated: true) { 
+        SVProgressHUD.show()
+
+        self.dismiss(animated: true) {
             DDRestHelper.fetchBusinesses(parameters: parameters, completionHandler: { (businessList) in
-                print(businessList)
+                SVProgressHUD.dismiss()
+                self.delegate?.updateBusinessList(businessList: businessList)
             })
         }
     }

@@ -15,25 +15,25 @@ class DDRestHelper {
     static let v1APIURLString:String = baseURLString + "v1/"
     static let v2APIURLString:String = baseURLString + "v2/"
     
-    static func fetchBusinesses(parameters:Parameters, completionHandler:@escaping ([Business]) -> ()) {
+    static func fetchBusinesses(parameters:Parameters, completionHandler:@escaping ([DDBusiness]) -> ()) {
         DispatchQueue.global(qos: .background).async {
             Alamofire.request(v1APIURLString + "store_search", method: HTTPMethod.get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
-                var businessList:Array<Business> = []
+                var businessList:Array<DDBusiness> = []
 
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms: \(response.result.error)")
+                    print("Error while fetching businesses: \(response.result.error)")
                     completionHandler(businessList)
                     return
                 }
                 
                 guard let value = response.result.value as? Array<Dictionary<String, Any>> else {
-                    print("Malformed data received from fetchAllRooms service")
+                    print("Malformed data received")
                     completionHandler(businessList)
                     return
                 }
 
                 for dict in value {
-                    let business = Business(dictionary: dict)
+                    let business = DDBusiness(dictionary: dict)
                     businessList.append(business)
                 }
                 

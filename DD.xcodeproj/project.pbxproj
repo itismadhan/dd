@@ -21,7 +21,9 @@
 		5A6240C11E21749D002E6D9A /* DDSegueIdentfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240C01E21749D002E6D9A /* DDSegueIdentfier.swift */; };
 		5A6240C31E21768D002E6D9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6240C21E21768D002E6D9A /* CoreLocation.framework */; };
 		5AAA56271E2405B4009AE2B3 /* DDRestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA56261E2405B4009AE2B3 /* DDRestHelper.swift */; };
-		5AAA562A1E241655009AE2B3 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA56291E241655009AE2B3 /* Business.swift */; };
+		5AAA562A1E241655009AE2B3 /* DDBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA56291E241655009AE2B3 /* DDBusiness.swift */; };
+		5AAA562D1E242F06009AE2B3 /* BusinessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAA562B1E242F06009AE2B3 /* BusinessTableViewCell.swift */; };
+		5AAA562E1E242F06009AE2B3 /* BusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AAA562C1E242F06009AE2B3 /* BusinessTableViewCell.xib */; };
 		65AA135BC4F4E5A91BCD948E /* Pods_DDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E870314E47DF46C3F803655 /* Pods_DDTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +60,9 @@
 		5A6240C01E21749D002E6D9A /* DDSegueIdentfier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDSegueIdentfier.swift; path = Helpers/DDSegueIdentfier.swift; sourceTree = "<group>"; };
 		5A6240C21E21768D002E6D9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5AAA56261E2405B4009AE2B3 /* DDRestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDRestHelper.swift; path = Helpers/DDRestHelper.swift; sourceTree = "<group>"; };
-		5AAA56291E241655009AE2B3 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Business.swift; path = Models/Business.swift; sourceTree = "<group>"; };
+		5AAA56291E241655009AE2B3 /* DDBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDBusiness.swift; path = Models/DDBusiness.swift; sourceTree = "<group>"; };
+		5AAA562B1E242F06009AE2B3 /* BusinessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessTableViewCell.swift; path = Resources/BusinessTableViewCell.swift; sourceTree = "<group>"; };
+		5AAA562C1E242F06009AE2B3 /* BusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusinessTableViewCell.xib; path = Resources/BusinessTableViewCell.xib; sourceTree = "<group>"; };
 		82D94030D7D4B4C00C8D5C47 /* Pods-DDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDTests/Pods-DDTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,8 @@
 				5A6240B91E216766002E6D9A /* ExploreViewController.swift */,
 				5A6240B61E216715002E6D9A /* FavoritesViewController.swift */,
 				5A6240BE1E21744B002E6D9A /* AddressViewController.swift */,
+				5AAA562B1E242F06009AE2B3 /* BusinessTableViewCell.swift */,
+				5AAA562C1E242F06009AE2B3 /* BusinessTableViewCell.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -170,7 +176,7 @@
 		5AAA56281E24163F009AE2B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5AAA56291E241655009AE2B3 /* Business.swift */,
+				5AAA56291E241655009AE2B3 /* DDBusiness.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A62409C1E216162002E6D9A /* LaunchScreen.storyboard in Resources */,
+				5AAA562E1E242F06009AE2B3 /* BusinessTableViewCell.xib in Resources */,
 				5A6240991E216162002E6D9A /* Assets.xcassets in Resources */,
 				5A6240971E216162002E6D9A /* Main.storyboard in Resources */,
 			);
@@ -394,7 +401,8 @@
 				5A6240B71E216715002E6D9A /* FavoritesViewController.swift in Sources */,
 				5A6240BF1E21744B002E6D9A /* AddressViewController.swift in Sources */,
 				5A6240C11E21749D002E6D9A /* DDSegueIdentfier.swift in Sources */,
-				5AAA562A1E241655009AE2B3 /* Business.swift in Sources */,
+				5AAA562D1E242F06009AE2B3 /* BusinessTableViewCell.swift in Sources */,
+				5AAA562A1E241655009AE2B3 /* DDBusiness.swift in Sources */,
 				5AAA56271E2405B4009AE2B3 /* DDRestHelper.swift in Sources */,
 				5A6240921E216162002E6D9A /* AppDelegate.swift in Sources */,
 			);

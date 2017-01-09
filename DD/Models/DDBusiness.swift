@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Business: NSObject {
+class DDBusiness: NSObject {
     static let minutesString:String = "min"
 
     var deliveryFee:String
@@ -17,6 +17,7 @@ class Business: NSObject {
     var name:String
     var type:String
     var id:String
+    var coverImageURL:URL?
     
     init(dictionary:Dictionary<String, Any>) {
         let tags = dictionary["tags"] as! Array<String>
@@ -29,6 +30,7 @@ class Business: NSObject {
         self.type = tags[0]
         self.deliveryFee = fee > 0 ? "$" + String(fee/100.0) : "Free"
         self.deliveryStatus = dictionary["status"] as! String
+        self.coverImageURL = URL(string: dictionary["cover_img_url"] as! String)
     }
     
 }

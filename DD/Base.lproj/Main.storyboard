@@ -12,7 +12,7 @@
         <!--Explore View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ExploreViewController" customModule="DD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ExploreViewController" customModule="DD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,7 +20,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x9L-hT-cbO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="x9L-hT-cbO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Jjv-IQ-Xca"/>
+                            <constraint firstAttribute="trailing" secondItem="x9L-hT-cbO" secondAttribute="trailing" id="sHH-N5-CRd"/>
+                            <constraint firstItem="x9L-hT-cbO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sJy-yE-7J2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x9L-hT-cbO" secondAttribute="bottom" id="tgg-Yu-glN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ocP-v0-YBL">
                         <barButtonItem key="leftBarButtonItem" image="nav-address" id="nUa-cr-q1w">
@@ -30,6 +42,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="nav-search" id="V0X-S1-7Uf"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="x9L-hT-cbO" id="JT9-lk-Q3h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

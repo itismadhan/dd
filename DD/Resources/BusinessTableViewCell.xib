@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessTableViewCell" rowHeight="108" id="KGk-i7-Jjw" customClass="BusinessTableViewCell" customModule="DD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="116"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gxB-DK-gf6">
+                        <rect key="frame" x="8" y="23.5" width="140" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="HmS-xW-B7S"/>
+                            <constraint firstAttribute="width" secondItem="gxB-DK-gf6" secondAttribute="height" multiplier="2:1" id="yOD-o5-2d9"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curry Up Now" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8If-rg-QIb">
+                        <rect key="frame" x="156" y="23.5" width="102.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC1-wA-sWg">
+                        <rect key="frame" x="156" y="51" width="38.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4.99 Delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9o-2x-Ket">
+                        <rect key="frame" x="156" y="76" width="93" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9j-RB-cj8">
+                        <rect key="frame" x="548" y="76.5" width="44" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GC1-wA-sWg" firstAttribute="centerY" secondItem="gxB-DK-gf6" secondAttribute="centerY" priority="750" id="0mY-ow-Zas"/>
+                    <constraint firstAttribute="leading" secondItem="gxB-DK-gf6" secondAttribute="leading" constant="-8" id="1za-Y3-j8h"/>
+                    <constraint firstItem="8If-rg-QIb" firstAttribute="top" secondItem="gxB-DK-gf6" secondAttribute="top" id="7u2-DZ-7po"/>
+                    <constraint firstItem="gxB-DK-gf6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FD0-WW-EFh"/>
+                    <constraint firstItem="8If-rg-QIb" firstAttribute="leading" secondItem="gxB-DK-gf6" secondAttribute="trailing" constant="8" id="Fa8-Kf-EzF"/>
+                    <constraint firstItem="V9j-RB-cj8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O9o-2x-Ket" secondAttribute="trailing" constant="8" id="LOl-T1-8RI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="V9j-RB-cj8" secondAttribute="trailing" id="Qrz-1g-khG"/>
+                    <constraint firstItem="O9o-2x-Ket" firstAttribute="bottom" secondItem="gxB-DK-gf6" secondAttribute="bottom" priority="750" id="Ua4-kI-dTP"/>
+                    <constraint firstItem="O9o-2x-Ket" firstAttribute="leading" secondItem="GC1-wA-sWg" secondAttribute="leading" id="ZyS-fD-g0i"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="8If-rg-QIb" secondAttribute="trailing" constant="8" id="btH-7l-dk6"/>
+                    <constraint firstItem="O9o-2x-Ket" firstAttribute="top" secondItem="GC1-wA-sWg" secondAttribute="bottom" constant="8" id="eaJ-tl-j6I"/>
+                    <constraint firstItem="V9j-RB-cj8" firstAttribute="centerY" secondItem="O9o-2x-Ket" secondAttribute="centerY" id="hKK-18-hX2"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="O9o-2x-Ket" secondAttribute="bottom" constant="8" id="knm-ut-92T"/>
+                    <constraint firstItem="GC1-wA-sWg" firstAttribute="leading" secondItem="8If-rg-QIb" secondAttribute="leading" id="n77-rp-iov"/>
+                    <constraint firstItem="GC1-wA-sWg" firstAttribute="top" secondItem="8If-rg-QIb" secondAttribute="bottom" constant="8" id="tUM-Y1-LHs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="businessImageView" destination="gxB-DK-gf6" id="3xl-9k-G7s"/>
+                <outlet property="businessNameLabel" destination="8If-rg-QIb" id="TGG-j1-yS5"/>
+                <outlet property="businessTagLabel" destination="GC1-wA-sWg" id="XrP-fp-Wv4"/>
+                <outlet property="deliveryFeeLabel" destination="O9o-2x-Ket" id="zT1-Xq-jEV"/>
+                <outlet property="deliveryStatusLabel" destination="V9j-RB-cj8" id="og4-rl-2Ab"/>
+            </connections>
+            <point key="canvasLocation" x="204.5" y="84"/>
+        </tableViewCell>
+    </objects>
+</document>
