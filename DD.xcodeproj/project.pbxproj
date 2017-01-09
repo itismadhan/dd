@@ -17,6 +17,9 @@
 		5A6240B71E216715002E6D9A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240B61E216715002E6D9A /* FavoritesViewController.swift */; };
 		5A6240BA1E216766002E6D9A /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240B91E216766002E6D9A /* ExploreViewController.swift */; };
 		5A6240BD1E216B67002E6D9A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6240BC1E216B67002E6D9A /* MapKit.framework */; };
+		5A6240BF1E21744B002E6D9A /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240BE1E21744B002E6D9A /* AddressViewController.swift */; };
+		5A6240C11E21749D002E6D9A /* DDSegueIdentfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240C01E21749D002E6D9A /* DDSegueIdentfier.swift */; };
+		5A6240C31E21768D002E6D9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6240C21E21768D002E6D9A /* CoreLocation.framework */; };
 		65AA135BC4F4E5A91BCD948E /* Pods_DDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E870314E47DF46C3F803655 /* Pods_DDTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		5A6240B61E216715002E6D9A /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = Resources/FavoritesViewController.swift; sourceTree = "<group>"; };
 		5A6240B91E216766002E6D9A /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExploreViewController.swift; path = Resources/ExploreViewController.swift; sourceTree = "<group>"; };
 		5A6240BC1E216B67002E6D9A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5A6240BE1E21744B002E6D9A /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressViewController.swift; path = Resources/AddressViewController.swift; sourceTree = "<group>"; };
+		5A6240C01E21749D002E6D9A /* DDSegueIdentfier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDSegueIdentfier.swift; path = Helpers/DDSegueIdentfier.swift; sourceTree = "<group>"; };
+		5A6240C21E21768D002E6D9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		82D94030D7D4B4C00C8D5C47 /* Pods-DDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDTests/Pods-DDTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6240C31E21768D002E6D9A /* CoreLocation.framework in Frameworks */,
 				5A6240BD1E216B67002E6D9A /* MapKit.framework in Frameworks */,
 				3E51ACD13B50CEFE579D9D98 /* Pods_DD.framework in Frameworks */,
 			);
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				5A6240B21E21657D002E6D9A /* DDColor.swift */,
+				5A6240C01E21749D002E6D9A /* DDSegueIdentfier.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				5A6240951E216162002E6D9A /* Main.storyboard */,
 				5A6240B91E216766002E6D9A /* ExploreViewController.swift */,
 				5A6240B61E216715002E6D9A /* FavoritesViewController.swift */,
+				5A6240BE1E21744B002E6D9A /* AddressViewController.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 		5A6240BB1E216B67002E6D9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A6240C21E21768D002E6D9A /* CoreLocation.framework */,
 				5A6240BC1E216B67002E6D9A /* MapKit.framework */,
 				04C855087B8A41EC96451FC7 /* Pods_DD.framework */,
 				4E870314E47DF46C3F803655 /* Pods_DDTests.framework */,
@@ -218,6 +228,7 @@
 				TargetAttributes = {
 					5A62408D1E216162002E6D9A = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = CL43895D58;
 						ProvisioningStyle = Automatic;
 					};
 					5A6240A11E216162002E6D9A = {
@@ -367,6 +378,8 @@
 				5A6240BA1E216766002E6D9A /* ExploreViewController.swift in Sources */,
 				5A6240B31E21657D002E6D9A /* DDColor.swift in Sources */,
 				5A6240B71E216715002E6D9A /* FavoritesViewController.swift in Sources */,
+				5A6240BF1E21744B002E6D9A /* AddressViewController.swift in Sources */,
+				5A6240C11E21749D002E6D9A /* DDSegueIdentfier.swift in Sources */,
 				5A6240921E216162002E6D9A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +520,7 @@
 			baseConfigurationReference = 29A0BDDFB82AFFDFA83F7B6B /* Pods-DD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CL43895D58;
 				INFOPLIST_FILE = DD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhan.DD;
@@ -520,6 +534,7 @@
 			baseConfigurationReference = 3C43AFEDE31CE7C52B0EFC4D /* Pods-DD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CL43895D58;
 				INFOPLIST_FILE = DD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.madhan.DD;
@@ -577,6 +592,7 @@
 				5A6240AD1E216162002E6D9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A6240AE1E216162002E6D9A /* Build configuration list for PBXNativeTarget "DDTests" */ = {
 			isa = XCConfigurationList;
@@ -585,6 +601,7 @@
 				5A6240B01E216162002E6D9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

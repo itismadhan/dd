@@ -23,9 +23,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="ocP-v0-YBL">
-                        <barButtonItem key="leftBarButtonItem" image="nav-address" style="plain" id="nUa-cr-q1w">
+                        <barButtonItem key="leftBarButtonItem" image="nav-address" id="nUa-cr-q1w">
                             <connections>
-                                <segue destination="70L-yx-D46" kind="presentation" id="iDz-Go-9ln"/>
+                                <segue destination="70L-yx-D46" kind="presentation" identifier="addressVCModalSegue" id="iDz-Go-9ln"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="nav-search" id="V0X-S1-7Uf"/>
@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="3802" y="-949"/>
         </scene>
-        <!--View Controller-->
+        <!--Address View Controller-->
         <scene sceneID="mH4-Om-izb">
             <objects>
-                <viewController id="70L-yx-D46" sceneMemberID="viewController">
+                <viewController id="70L-yx-D46" customClass="AddressViewController" customModule="DD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QKy-MC-dms"/>
                         <viewControllerLayoutGuide type="bottom" id="PAc-f1-IWb"/>
@@ -102,6 +102,10 @@
                             <constraint firstItem="qL5-e4-GCw" firstAttribute="leading" secondItem="2Si-lQ-a5D" secondAttribute="leading" id="zap-4x-uWn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="2gg-cI-Pw1" id="UiO-zG-0z1"/>
+                        <outlet property="mapView" destination="CXt-8a-g2A" id="d3B-zf-C1Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdh-YO-fR7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +143,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="v1W-DN-oco" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="mR8-Bb-Jqd">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -197,6 +202,6 @@
         <image name="tab-star" width="28" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Npk-t7-TtT"/>
+        <segue reference="iDz-Go-9ln"/>
     </inferredMetricsTieBreakers>
 </document>
