@@ -15,6 +15,8 @@ class ExploreViewController: UIViewController, BusinessDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
         self.setupTableView()
         self.performSegue(withIdentifier: DDSegueIdentifier.AddressViewControllerModalSegue, sender: nil)
     }

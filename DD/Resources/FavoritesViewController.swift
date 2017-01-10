@@ -14,6 +14,8 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
         self.setupTableView()
     }
     

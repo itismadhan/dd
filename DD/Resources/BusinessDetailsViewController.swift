@@ -37,7 +37,8 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
         DDRestHelper.fetchBusinessMenu(business: self.business!) { (businessMenu) in
             if (businessMenu != nil) {
                 self.businessMenu = businessMenu
-                
+                self.headerLabel.text = self.businessMenu?.status
+
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.tableView.flashScrollIndicators()
@@ -75,7 +76,6 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
     private func setupHeaderView() {
         self.navigationItem.title = self.business?.name
         self.headerImageView.image = self.headerImage
-        self.headerLabel.text = self.businessMenu?.status
         self.setupFavoriteButton()
     }
     
@@ -96,10 +96,12 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
             self.favoriteButton.backgroundColor = DDColor.Red
             self.favoriteButton.setTitle(BusinessDetailsViewController.kFavoritedString, for: .normal)
             self.favoriteButton.setTitleColor(UIColor.white, for: .normal)
+            self.favoriteButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
         } else {
             self.favoriteButton.backgroundColor = UIColor.white
             self.favoriteButton.setTitle(BusinessDetailsViewController.kAddToFavoritesString, for: .normal)
             self.favoriteButton.setTitleColor(DDColor.Red, for: .normal)
+            self.favoriteButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
     }
     
