@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController, UITableViewDataSource, BusinessDelegate {
-    @IBOutlet weak var tableView: UITableView!
+class ExploreViewController: UIViewController, BusinessDelegate {
+    @IBOutlet weak var tableView: BusinessTableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    var businessList:Array<DDBusiness> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,32 +25,24 @@ class ExploreViewController: UIViewController, UITableViewDataSource, BusinessDe
         }
     }
     
-    //MARK: <UITableViewDataSource>
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.businessList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:BusinessTableViewCell = tableView.dequeueReusableCell(withIdentifier: BusinessTableViewCell.reuseIdentifier(), for: indexPath) as! BusinessTableViewCell
-        
-        cell.setup(business: self.businessList[indexPath.row])
-    
-        return cell
-    }
-    
     //MARK: <BusinessDelegate>
     func updateBusinessList(businessList: Array<DDBusiness>) {
-        self.businessList = businessList
-        self.tableView.reloadData()
+        self.tableView.businessList = businessList
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     //MARK: Private
     private func setupTableView() {
         let cellNib = UINib(nibName: BusinessTableViewCell.reuseIdentifier(), bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: BusinessTableViewCell.reuseIdentifier())
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        self.tableView.rowHeight = 100
+        self.tableView.dataSource = self.tableView
+        self.tableView.delegate = self.tableView
+        self.tableView.estimatedRowHeight = 120
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.navVC = self.navigationController
     }
 }
 

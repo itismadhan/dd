@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x9L-hT-cbO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x9L-hT-cbO" customClass="BusinessTableView" customModule="DD" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -141,7 +141,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="kNg-HV-Drm">
             <objects>
-                <viewController id="LKC-Ad-Y17" customClass="FavoritesViewController" customModule="DD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="LKC-Ad-Y17" customClass="FavoritesViewController" customModule="DD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ga0-hN-UtF"/>
                         <viewControllerLayoutGuide type="bottom" id="9Fm-1p-Lr4"/>
@@ -149,7 +149,19 @@
                     <view key="view" contentMode="scaleToFill" id="kI5-oq-0Eh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kFb-2t-1NJ" customClass="BusinessTableView" customModule="DD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kFb-2t-1NJ" firstAttribute="top" secondItem="ga0-hN-UtF" secondAttribute="bottom" id="19O-1N-Ckt"/>
+                            <constraint firstAttribute="trailing" secondItem="kFb-2t-1NJ" secondAttribute="trailing" id="JeG-EU-fyg"/>
+                            <constraint firstItem="kFb-2t-1NJ" firstAttribute="leading" secondItem="kI5-oq-0Eh" secondAttribute="leading" id="miF-uO-Q0D"/>
+                            <constraint firstItem="9Fm-1p-Lr4" firstAttribute="top" secondItem="kFb-2t-1NJ" secondAttribute="bottom" id="vSC-g0-r0H"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UkS-Vr-yff">
                         <barButtonItem key="leftBarButtonItem" image="nav-address" id="CyH-XO-5c2">
@@ -229,6 +241,6 @@
         <image name="tab-star" width="28" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iDz-Go-9ln"/>
+        <segue reference="Npk-t7-TtT"/>
     </inferredMetricsTieBreakers>
 </document>

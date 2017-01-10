@@ -41,4 +41,33 @@ class DDRestHelper {
             }
         }
     }
+    
+    static func fetchBusinessMenu(business:DDBusiness, completionHandler:@escaping (DDBusinessMenu?) -> ()) {
+        DispatchQueue.global(qos: .background).async {
+            let URLString = v2APIURLString + "restaurant/" + business.id + "/menu/"
+
+            Alamofire.request(URLString, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                var businessMenu:DDBusinessMenu?
+                
+                guard response.result.isSuccess else {
+                    print("Error while fetching businesses: \(response.result.error)")
+                    completionHandler(nil)
+                    return
+                }
+                
+                guard let value = response.result.value as? Array<Dictionary<String, Any>> else {
+                    print("Malformed data received")
+                    completionHandler(nil)
+                    return
+                }
+                
+                for dict in value {
+                    businessMenu = DDBusinessMenu(dictionary: dict)
+                }
+                
+                completionHandler(businessMenu)
+            }
+        }
+    }
+
 }

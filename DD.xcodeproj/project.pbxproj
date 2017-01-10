@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3E51ACD13B50CEFE579D9D98 /* Pods_DD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C855087B8A41EC96451FC7 /* Pods_DD.framework */; };
+		5A33B0351E244B8D0070CFC4 /* BusinessTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A33B0341E244B8D0070CFC4 /* BusinessTableView.swift */; };
+		5A33B0381E24532E0070CFC4 /* BusinessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A33B0361E24532E0070CFC4 /* BusinessDetailsViewController.swift */; };
+		5A33B0391E24532E0070CFC4 /* BusinessDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A33B0371E24532E0070CFC4 /* BusinessDetailsViewController.xib */; };
+		5A491F001E2459EA00A4D8BC /* DDBusinessMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A491EFF1E2459EA00A4D8BC /* DDBusinessMenu.swift */; };
+		5A491F021E245E5600A4D8BC /* DDBusinessMenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A491F011E245E5600A4D8BC /* DDBusinessMenuCategory.swift */; };
 		5A6240921E216162002E6D9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6240911E216162002E6D9A /* AppDelegate.swift */; };
 		5A6240971E216162002E6D9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A6240951E216162002E6D9A /* Main.storyboard */; };
 		5A6240991E216162002E6D9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A6240981E216162002E6D9A /* Assets.xcassets */; };
@@ -43,6 +48,11 @@
 		3C43AFEDE31CE7C52B0EFC4D /* Pods-DD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DD.release.xcconfig"; path = "Pods/Target Support Files/Pods-DD/Pods-DD.release.xcconfig"; sourceTree = "<group>"; };
 		430E21E97272351D6A756D61 /* Pods-DDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDTests/Pods-DDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E870314E47DF46C3F803655 /* Pods_DDTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A33B0341E244B8D0070CFC4 /* BusinessTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessTableView.swift; path = Resources/BusinessTableView.swift; sourceTree = "<group>"; };
+		5A33B0361E24532E0070CFC4 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusinessDetailsViewController.swift; path = Resources/BusinessDetailsViewController.swift; sourceTree = "<group>"; };
+		5A33B0371E24532E0070CFC4 /* BusinessDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BusinessDetailsViewController.xib; path = Resources/BusinessDetailsViewController.xib; sourceTree = "<group>"; };
+		5A491EFF1E2459EA00A4D8BC /* DDBusinessMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDBusinessMenu.swift; path = Models/DDBusinessMenu.swift; sourceTree = "<group>"; };
+		5A491F011E245E5600A4D8BC /* DDBusinessMenuCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDBusinessMenuCategory.swift; path = Models/DDBusinessMenuCategory.swift; sourceTree = "<group>"; };
 		5A62408E1E216162002E6D9A /* DD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A6240911E216162002E6D9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A6240961E216162002E6D9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +159,9 @@
 				5A6240BE1E21744B002E6D9A /* AddressViewController.swift */,
 				5AAA562B1E242F06009AE2B3 /* BusinessTableViewCell.swift */,
 				5AAA562C1E242F06009AE2B3 /* BusinessTableViewCell.xib */,
+				5A33B0341E244B8D0070CFC4 /* BusinessTableView.swift */,
+				5A33B0361E24532E0070CFC4 /* BusinessDetailsViewController.swift */,
+				5A33B0371E24532E0070CFC4 /* BusinessDetailsViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -177,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				5AAA56291E241655009AE2B3 /* DDBusiness.swift */,
+				5A491EFF1E2459EA00A4D8BC /* DDBusinessMenu.swift */,
+				5A491F011E245E5600A4D8BC /* DDBusinessMenuCategory.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -285,6 +300,7 @@
 				5A62409C1E216162002E6D9A /* LaunchScreen.storyboard in Resources */,
 				5AAA562E1E242F06009AE2B3 /* BusinessTableViewCell.xib in Resources */,
 				5A6240991E216162002E6D9A /* Assets.xcassets in Resources */,
+				5A33B0391E24532E0070CFC4 /* BusinessDetailsViewController.xib in Resources */,
 				5A6240971E216162002E6D9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,12 +413,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A6240BA1E216766002E6D9A /* ExploreViewController.swift in Sources */,
+				5A491F021E245E5600A4D8BC /* DDBusinessMenuCategory.swift in Sources */,
 				5A6240B31E21657D002E6D9A /* DDColor.swift in Sources */,
 				5A6240B71E216715002E6D9A /* FavoritesViewController.swift in Sources */,
 				5A6240BF1E21744B002E6D9A /* AddressViewController.swift in Sources */,
+				5A491F001E2459EA00A4D8BC /* DDBusinessMenu.swift in Sources */,
 				5A6240C11E21749D002E6D9A /* DDSegueIdentfier.swift in Sources */,
 				5AAA562D1E242F06009AE2B3 /* BusinessTableViewCell.swift in Sources */,
 				5AAA562A1E241655009AE2B3 /* DDBusiness.swift in Sources */,
+				5A33B0381E24532E0070CFC4 /* BusinessDetailsViewController.swift in Sources */,
+				5A33B0351E244B8D0070CFC4 /* BusinessTableView.swift in Sources */,
 				5AAA56271E2405B4009AE2B3 /* DDRestHelper.swift in Sources */,
 				5A6240921E216162002E6D9A /* AppDelegate.swift in Sources */,
 			);

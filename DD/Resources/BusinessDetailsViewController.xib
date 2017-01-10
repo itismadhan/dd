@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BusinessDetailsViewController" customModule="DD" customModuleProvider="target">
+            <connections>
+                <outlet property="favoriteButton" destination="eEp-ub-CnV" id="87x-lG-nFD"/>
+                <outlet property="headerImageView" destination="bVI-Xs-2dv" id="SMM-oy-NUf"/>
+                <outlet property="headerLabel" destination="cgh-Kg-fTg" id="GBM-8d-aO5"/>
+                <outlet property="tableView" destination="Wnf-G6-hyN" id="LSz-fo-bvk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7y-Wk-Bs0" userLabel="Header View">
+                    <rect key="frame" x="0.0" y="64" width="375" height="222.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bVI-Xs-2dv">
+                            <rect key="frame" x="97.5" y="30" width="180" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="bVI-Xs-2dv" secondAttribute="height" multiplier="2:1" id="Eq1-bx-Gq6"/>
+                                <constraint firstAttribute="width" constant="180" id="KBR-da-Khi"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Delivery in 45 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgh-Kg-fTg">
+                            <rect key="frame" x="114.5" y="136" width="146" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-ub-CnV">
+                            <rect key="frame" x="62.5" y="169" width="250" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="J4A-3l-del"/>
+                                <constraint firstAttribute="height" constant="40" id="wgG-y9-Q0y"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <color key="tintColor" red="0.98431372549999996" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Add to Favorites">
+                                <color key="titleColor" red="0.98431372549999996" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="cgh-Kg-fTg" firstAttribute="top" secondItem="bVI-Xs-2dv" secondAttribute="bottom" constant="16" id="5xA-OL-yWm"/>
+                        <constraint firstItem="eEp-ub-CnV" firstAttribute="top" secondItem="cgh-Kg-fTg" secondAttribute="bottom" constant="16" id="EmK-bw-4bS"/>
+                        <constraint firstItem="eEp-ub-CnV" firstAttribute="centerX" secondItem="cgh-Kg-fTg" secondAttribute="centerX" id="ThA-yS-bod"/>
+                        <constraint firstItem="bVI-Xs-2dv" firstAttribute="top" secondItem="b7y-Wk-Bs0" secondAttribute="top" constant="30" id="XmI-9h-gV2"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="eEp-ub-CnV" secondAttribute="bottom" constant="8" id="kSC-j8-gaD"/>
+                        <constraint firstItem="bVI-Xs-2dv" firstAttribute="centerX" secondItem="b7y-Wk-Bs0" secondAttribute="centerX" id="pyY-19-NlO"/>
+                        <constraint firstItem="cgh-Kg-fTg" firstAttribute="centerX" secondItem="bVI-Xs-2dv" secondAttribute="centerX" id="wLg-zj-5m7"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wnf-G6-hyN">
+                    <rect key="frame" x="0.0" y="286.5" width="375" height="380.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="b7y-Wk-Bs0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1xd-L9-7dq"/>
+                <constraint firstAttribute="trailing" secondItem="Wnf-G6-hyN" secondAttribute="trailing" id="3SC-JM-rJW"/>
+                <constraint firstAttribute="trailing" secondItem="b7y-Wk-Bs0" secondAttribute="trailing" id="56E-Y8-TY4"/>
+                <constraint firstItem="b7y-Wk-Bs0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="BhL-Tg-B62"/>
+                <constraint firstItem="b7y-Wk-Bs0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:3" id="aWR-Ya-Aq1"/>
+                <constraint firstAttribute="bottom" secondItem="Wnf-G6-hyN" secondAttribute="bottom" id="oR4-ve-115"/>
+                <constraint firstItem="Wnf-G6-hyN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uZk-pS-FBz"/>
+                <constraint firstItem="Wnf-G6-hyN" firstAttribute="top" secondItem="b7y-Wk-Bs0" secondAttribute="bottom" id="wX5-n2-ssQ"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

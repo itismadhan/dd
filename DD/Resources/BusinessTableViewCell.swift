@@ -26,9 +26,7 @@ class BusinessTableViewCell: UITableViewCell {
         self.deliveryFeeLabel.text = business.deliveryFee + " Delivery"
         self.deliveryStatusLabel.text = business.deliveryStatus
         
-        if (business.coverImageURL != nil) {
-            print("Image url is \(business.coverImageURL)")
-            
+        if (business.coverImageURL != nil) {            
             DispatchQueue.global(qos: .background).async {
                 Alamofire.request(business.coverImageURL!).responseData { response in
                     guard response.result.isSuccess else {
@@ -36,8 +34,6 @@ class BusinessTableViewCell: UITableViewCell {
                         return
                     }
                     
-                    print("Recieved data \(response.result.value)")
-
                     if let data = response.result.value {
                         self.setBusinessImage(image: UIImage(data: data)!, business: business)
                     }
