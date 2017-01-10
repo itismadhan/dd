@@ -14,6 +14,7 @@ class DDBusinessMenu: NSObject {
     
     init(dictionary:Dictionary<String, Any>) {
         let categoriesList = dictionary["menu_categories"] as! Array<Dictionary<String, Any>>
+        
         for category in categoriesList {
             self.categoryList.append(DDBusinessMenuCategory(dictionary: category))
         }

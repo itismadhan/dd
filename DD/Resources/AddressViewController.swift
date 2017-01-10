@@ -16,10 +16,11 @@ protocol BusinessDelegate {
 }
 
 class AddressViewController: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     let pin = MKPointAnnotation()
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     var delegate:BusinessDelegate?
 
     override func viewDidLoad() {
@@ -31,7 +32,6 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.requestWhenInUseAuthorization()
             self.locationManager.startUpdatingLocation()
-            
             self.mapView.showsUserLocation = true
         }
     }
@@ -50,20 +50,18 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     //MARK: IBAction
-    
     @IBAction func onConfirmAddressButtonTap(_ sender: UIButton) {
         let lat = String(format: "%f", self.pin.coordinate.latitude)
         let long = String(format: "%f", self.pin.coordinate.longitude)
         let parameters = [
-            "lat" : lat,
-            "lng" : long
+            DDRestHelper.kLatitudeKeyString : lat,
+            DDRestHelper.kLongitudeKeyString : long
         ]
         
-        SVProgressHUD.show()
-        let exploreVC:ExploreViewController = self.delegate as! ExploreViewController
-        exploreVC.navigationController?.tabBarController?.selectedIndex = 0
-
         self.dismiss(animated: true) {
+            self.selectExploreTab()
+            SVProgressHUD.show()
+
             DDRestHelper.fetchBusinesses(parameters: parameters, completionHandler: { (businessList) in
                 SVProgressHUD.dismiss()
                 self.delegate?.updateBusinessList(businessList: businessList)
@@ -77,19 +75,15 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         let touchPoint = sender.location(in: self.mapView)
-        let touchCoordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
-        
-        self.pin.coordinate = touchCoordinate
+        self.pin.coordinate = self.mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
         
         let location = CLLocation(latitude: self.pin.coordinate.latitude, longitude: self.pin.coordinate.longitude)
         self.updateAddress(location: location)
     }
     
     //MARK: Private
-    
     private func updateAddress(location:CLLocation) {
         DispatchQueue.global(qos: .background).async {
-            
             CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks:[CLPlacemark]?, error:Error?) -> Void in
                 if (error != nil) {
                     print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
@@ -111,6 +105,11 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
     private func streetAddress(placemark: CLPlacemark) -> String {
         let street = placemark.addressDictionary?["Street"] as? String ?? ""
         return street
+    }
+    
+    private func selectExploreTab() {
+        let exploreVC:ExploreViewController = self.delegate as! ExploreViewController
+        exploreVC.navigationController?.tabBarController?.selectedIndex = 0
     }
 
 }

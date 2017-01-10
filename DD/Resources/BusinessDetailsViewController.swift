@@ -17,13 +17,14 @@ enum FavoriteButtonState:Int {
 class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
     static let kAddToFavoritesString = "Add to Favorites"
     static let kFavoritedString = "Favorited"
+    static let kMenuSectionTitleString = "Menu"
     
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
     var headerImage:UIImage?
-
     var business:DDBusiness?
     var businessMenu:DDBusinessMenu?
     
@@ -47,10 +48,6 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
             
             SVProgressHUD.dismiss()
         }
-        
-        if (self.business?.isFavorite())! {
-                self.updateFavoriteButton(state: .favorited)
-        }
     }
     
     //MARK: <UITableViewDataSource>
@@ -59,7 +56,7 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
            return (self.businessMenu?.categoryList.count)!
         }
         
-        return 0
+        return Int.min
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +66,19 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Menu"
+        return BusinessDetailsViewController.kMenuSectionTitleString
+    }
+    
+    //MARK: IBAction
+    @IBAction func onFavoriteButtonTap(_ sender: UIButton) {
+        //TODO - Change condition
+        if sender.titleLabel?.text == BusinessDetailsViewController.kAddToFavoritesString {
+            self.updateFavoriteButton(state: .favorited)
+            DDBusiness.saveFavorite(business: self.business!)
+        } else {
+            self.updateFavoriteButton(state: .addToFavorites)
+            DDBusiness.deleteFavorite(business: self.business!)
+        }
     }
     
     //MARK: Private
@@ -89,6 +98,10 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
         self.favoriteButton.layer.masksToBounds = true
         self.favoriteButton.layer.borderWidth  = 1
         self.favoriteButton.layer.borderColor = DDColor.Red.cgColor
+        
+        if (self.business?.isFavorite())! {
+            self.updateFavoriteButton(state: .favorited)
+        }
     }
     
     private func updateFavoriteButton(state:FavoriteButtonState) {
@@ -102,19 +115,6 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
             self.favoriteButton.setTitle(BusinessDetailsViewController.kAddToFavoritesString, for: .normal)
             self.favoriteButton.setTitleColor(DDColor.Red, for: .normal)
             self.favoriteButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        }
-    }
-    
-    //MARK: IBAction
-    
-    @IBAction func onFavoriteButtonTap(_ sender: UIButton) {
-        //TODO - Change condition
-        if sender.titleLabel?.text == BusinessDetailsViewController.kAddToFavoritesString {
-            self.updateFavoriteButton(state: .favorited)
-            DDBusiness.saveFavorite(business: self.business!)
-        } else {
-            self.updateFavoriteButton(state: .addToFavorites)
-            DDBusiness.deleteFavorite(business: self.business!)
         }
     }
 }

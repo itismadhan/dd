@@ -16,10 +16,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var deliveryStatusLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+    //MARK: Utility
     public func setup(business:DDBusiness) {
         self.businessNameLabel.text = business.name
         self.businessTagLabel.text = business.type
@@ -42,6 +39,7 @@ class BusinessTableViewCell: UITableViewCell {
         }
     }
     
+    //MARK: Private
     private func setBusinessImage(image:UIImage, business:DDBusiness) {
         if business.name == self.businessNameLabel.text {
             DispatchQueue.main.async {

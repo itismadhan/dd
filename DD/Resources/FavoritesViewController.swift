@@ -14,17 +14,14 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+        self.setupNavigationBar()
         self.setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        SVProgressHUD.show()
         self.tableView.businessList = DDBusiness.loadFavorites()
         self.tableView.reloadData()
-        SVProgressHUD.dismiss()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,5 +40,10 @@ class FavoritesViewController: UIViewController {
         self.tableView.estimatedRowHeight = 120
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.navVC = self.navigationController
+    }
+    
+    private func setupNavigationBar() {
+        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
     }
 }

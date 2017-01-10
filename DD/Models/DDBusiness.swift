@@ -5,12 +5,20 @@
 //  Created by Madhan Padmanabhan on 1/9/17.
 //  Copyright © 2017 madhan. All rights reserved.
 //
-
 import Foundation
 
+enum DDBusinessKey:String {
+    case deliveryFee = "deliveryFee"
+    case deliveryStatus = "deliveryStatus"
+    case name = "name"
+    case type = "type"
+    case id = "id"
+    case coverImageURL = "coverImageURL"
+}
 
 class DDBusiness: NSObject, NSCoding {
     static let minutesString:String = "min"
+    static let favoritesUserDefaultsKeyString:String = "favorites"
 
     var deliveryFee:String
     var deliveryStatus:String
@@ -33,24 +41,26 @@ class DDBusiness: NSObject, NSCoding {
         self.coverImageURL = URL(string: dictionary["cover_img_url"] as! String)
     }
     
+    //MARK: NSCoding
     required init?(coder aDecoder: NSCoder) {
-        self.id = aDecoder.decodeObject(forKey: "id") as! String
-        self.deliveryFee = aDecoder.decodeObject(forKey: "deliveryFee") as! String
-        self.deliveryStatus = aDecoder.decodeObject(forKey: "deliveryStatus") as! String
-        self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.type = aDecoder.decodeObject(forKey: "type") as! String
-        self.coverImageURL = aDecoder.decodeObject(forKey: "coverImageURL") as? URL
+        self.id = aDecoder.decodeObject(forKey: DDBusinessKey.id.rawValue) as! String
+        self.deliveryFee = aDecoder.decodeObject(forKey: DDBusinessKey.deliveryFee.rawValue) as! String
+        self.deliveryStatus = aDecoder.decodeObject(forKey: DDBusinessKey.deliveryStatus.rawValue) as! String
+        self.name = aDecoder.decodeObject(forKey: DDBusinessKey.name.rawValue) as! String
+        self.type = aDecoder.decodeObject(forKey: DDBusinessKey.type.rawValue) as! String
+        self.coverImageURL = aDecoder.decodeObject(forKey: DDBusinessKey.coverImageURL.rawValue) as? URL
     }
     
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.id, forKey: "id")
-        aCoder.encode(self.deliveryFee, forKey: "deliveryFee")
-        aCoder.encode(self.deliveryStatus, forKey: "deliveryStatus")
-        aCoder.encode(self.name, forKey: "name")
-        aCoder.encode(self.type, forKey: "type")
-        aCoder.encode(self.coverImageURL, forKey: "coverImageURL")
+        aCoder.encode(self.id, forKey: DDBusinessKey.id.rawValue)
+        aCoder.encode(self.deliveryFee, forKey: DDBusinessKey.deliveryFee.rawValue)
+        aCoder.encode(self.deliveryStatus, forKey: DDBusinessKey.deliveryStatus.rawValue)
+        aCoder.encode(self.name, forKey: DDBusinessKey.name.rawValue)
+        aCoder.encode(self.type, forKey: DDBusinessKey.type.rawValue)
+        aCoder.encode(self.coverImageURL, forKey: DDBusinessKey.coverImageURL.rawValue)
     }
     
+    //MARK:Utility
     public func isFavorite() -> Bool {
         var favorites:Dictionary<String, Data> = DDBusiness.loadUserDefaults()
         
@@ -61,10 +71,11 @@ class DDBusiness: NSObject, NSCoding {
         return false
     }
     
+    //MARK:Static
     static func deleteFavorite(business:DDBusiness) {
         var favorites:Dictionary<String, Data> = self.loadUserDefaults()
         favorites.removeValue(forKey: business.id)
-        UserDefaults.standard.set(favorites, forKey:"favorites")
+        UserDefaults.standard.set(favorites, forKey:favoritesUserDefaultsKeyString)
 
         DispatchQueue.global(qos: .background).async {
             UserDefaults.standard.synchronize()
@@ -74,7 +85,7 @@ class DDBusiness: NSObject, NSCoding {
     static func saveFavorite(business:DDBusiness) {
         var favorites = self.loadUserDefaults()
         favorites[business.id] = NSKeyedArchiver.archivedData(withRootObject: business)
-        UserDefaults.standard.set(favorites, forKey:"favorites")
+        UserDefaults.standard.set(favorites, forKey:favoritesUserDefaultsKeyString)
 
         DispatchQueue.global(qos: .background).async {
             UserDefaults.standard.synchronize()
@@ -97,8 +108,8 @@ class DDBusiness: NSObject, NSCoding {
         let defaults = UserDefaults.standard
         var favorites:Dictionary<String, Data> = [:]
         
-        if defaults.dictionary(forKey: "favorites") != nil {
-            favorites = defaults.dictionary(forKey: "favorites") as! Dictionary<String, Data>
+        if defaults.dictionary(forKey: favoritesUserDefaultsKeyString) != nil {
+            favorites = defaults.dictionary(forKey: favoritesUserDefaultsKeyString) as! Dictionary<String, Data>
         }
         
         return favorites

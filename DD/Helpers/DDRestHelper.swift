@@ -8,16 +8,17 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class DDRestHelper {
-    static let baseURLString:String = "https://api.doordash.com/"
-    static let v1APIURLString:String = baseURLString + "v1/"
-    static let v2APIURLString:String = baseURLString + "v2/"
+    static let kBaseURLString:String = "https://api.doordash.com/"
+    static let kV1APIURLString:String = kBaseURLString + "v1/"
+    static let kV2APIURLString:String = kBaseURLString + "v2/"
+    static let kLatitudeKeyString:String = "lat"
+    static let kLongitudeKeyString:String = "lng"
     
     static func fetchBusinesses(parameters:Parameters, completionHandler:@escaping ([DDBusiness]) -> ()) {
         DispatchQueue.global(qos: .background).async {
-            Alamofire.request(v1APIURLString + "store_search", method: HTTPMethod.get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            Alamofire.request(kV1APIURLString + "store_search", method: HTTPMethod.get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
                 var businessList:Array<DDBusiness> = []
 
                 guard response.result.isSuccess else {
@@ -44,7 +45,7 @@ class DDRestHelper {
     
     static func fetchBusinessMenu(business:DDBusiness, completionHandler:@escaping (DDBusinessMenu?) -> ()) {
         DispatchQueue.global(qos: .background).async {
-            let URLString = v2APIURLString + "restaurant/" + business.id + "/menu/"
+            let URLString = kV2APIURLString + "restaurant/" + business.id + "/menu/"
 
             Alamofire.request(URLString, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
                 var businessMenu:DDBusinessMenu?

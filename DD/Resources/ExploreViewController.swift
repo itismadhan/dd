@@ -10,20 +10,22 @@ import UIKit
 
 class ExploreViewController: UIViewController, BusinessDelegate {
     @IBOutlet weak var tableView: BusinessTableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+        self.setupNavigationBar()
         self.setupTableView()
-        self.performSegue(withIdentifier: DDSegueIdentifier.AddressViewControllerModalSegue, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addressViewController = segue.destination as? AddressViewController {
             addressViewController.delegate = self
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if self.tableView.businessList.count == 0 {
+            self.performSegue(withIdentifier: DDSegueIdentifier.AddressViewControllerModalSegue, sender: nil)
         }
     }
     
@@ -46,6 +48,11 @@ class ExploreViewController: UIViewController, BusinessDelegate {
         self.tableView.estimatedRowHeight = 120
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.navVC = self.navigationController
+    }
+    
+    private func setupNavigationBar() {
+        let titleDict: Dictionary<String, Any> = [NSForegroundColorAttributeName: DDColor.Red]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
     }
 }
 
