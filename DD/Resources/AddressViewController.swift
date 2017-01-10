@@ -60,6 +60,8 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate {
         ]
         
         SVProgressHUD.show()
+        let exploreVC:ExploreViewController = self.delegate as! ExploreViewController
+        exploreVC.navigationController?.tabBarController?.selectedIndex = 0
 
         self.dismiss(animated: true) {
             DDRestHelper.fetchBusinesses(parameters: parameters, completionHandler: { (businessList) in

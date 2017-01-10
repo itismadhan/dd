@@ -9,7 +9,15 @@
 import UIKit
 import SVProgressHUD
 
+enum FavoriteButtonState:Int {
+    case addToFavorites = 0
+    case favorited = 1
+}
+
 class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
+    static let kAddToFavoritesString = "Add to Favorites"
+    static let kFavoritedString = "Favorited"
+    
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var headerLabel: UILabel!
@@ -38,6 +46,10 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
             
             SVProgressHUD.dismiss()
         }
+        
+        if (self.business?.isFavorite())! {
+                self.updateFavoriteButton(state: .favorited)
+        }
     }
     
     //MARK: <UITableViewDataSource>
@@ -61,10 +73,12 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
     
     //MARK: Private
     private func setupHeaderView() {
+        self.navigationItem.title = self.business?.name
         self.headerImageView.image = self.headerImage
         self.headerLabel.text = self.businessMenu?.status
         self.setupFavoriteButton()
     }
+    
     private func setupTableView() {
         self.tableView.dataSource = self
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
@@ -75,5 +89,30 @@ class BusinessDetailsViewController: UIViewController, UITableViewDataSource {
         self.favoriteButton.layer.masksToBounds = true
         self.favoriteButton.layer.borderWidth  = 1
         self.favoriteButton.layer.borderColor = DDColor.Red.cgColor
+    }
+    
+    private func updateFavoriteButton(state:FavoriteButtonState) {
+        if state == .favorited {
+            self.favoriteButton.backgroundColor = DDColor.Red
+            self.favoriteButton.setTitle(BusinessDetailsViewController.kFavoritedString, for: .normal)
+            self.favoriteButton.setTitleColor(UIColor.white, for: .normal)
+        } else {
+            self.favoriteButton.backgroundColor = UIColor.white
+            self.favoriteButton.setTitle(BusinessDetailsViewController.kAddToFavoritesString, for: .normal)
+            self.favoriteButton.setTitleColor(DDColor.Red, for: .normal)
+        }
+    }
+    
+    //MARK: IBAction
+    
+    @IBAction func onFavoriteButtonTap(_ sender: UIButton) {
+        //TODO - Change condition
+        if sender.titleLabel?.text == BusinessDetailsViewController.kAddToFavoritesString {
+            self.updateFavoriteButton(state: .favorited)
+            DDBusiness.saveFavorite(business: self.business!)
+        } else {
+            self.updateFavoriteButton(state: .addToFavorites)
+            DDBusiness.deleteFavorite(business: self.business!)
+        }
     }
 }

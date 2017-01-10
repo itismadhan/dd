@@ -7,29 +7,39 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class FavoritesViewController: UIViewController {
-
+    @IBOutlet weak var tableView: BusinessTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.setupTableView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        SVProgressHUD.show()
+        self.tableView.businessList = DDBusiness.loadFavorites()
+        self.tableView.reloadData()
+        SVProgressHUD.dismiss()
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addressViewController = segue.destination as? AddressViewController {
+            let nav:UINavigationController = self.tabBarController?.viewControllers?.first as! UINavigationController
+            addressViewController.delegate = nav.viewControllers.first as! ExploreViewController
+        }
+    }
+    
+    //MARK: Private
+    private func setupTableView() {
+        let cellNib = UINib(nibName: BusinessTableViewCell.reuseIdentifier(), bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: BusinessTableViewCell.reuseIdentifier())
+        self.tableView.dataSource = self.tableView
+        self.tableView.delegate = self.tableView
+        self.tableView.estimatedRowHeight = 120
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.navVC = self.navigationController
+    }
 }

@@ -27,6 +27,7 @@ class ExploreViewController: UIViewController, BusinessDelegate {
     
     //MARK: <BusinessDelegate>
     func updateBusinessList(businessList: Array<DDBusiness>) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
         self.tableView.businessList = businessList
         
         DispatchQueue.main.async {

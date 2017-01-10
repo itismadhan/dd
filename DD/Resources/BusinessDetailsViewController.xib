@@ -41,17 +41,19 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-ub-CnV">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEp-ub-CnV">
                             <rect key="frame" x="62.5" y="169" width="250" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="250" id="J4A-3l-del"/>
                                 <constraint firstAttribute="height" constant="40" id="wgG-y9-Q0y"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <color key="tintColor" red="0.98431372549999996" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Add to Favorites">
+                            <state key="normal" title="Add to Favorites" image="star-white">
                                 <color key="titleColor" red="0.98431372549999996" green="0.0" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
+                            <connections>
+                                <action selector="onFavoriteButtonTap:" destination="-1" eventType="touchUpInside" id="TqD-fP-mTb"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -84,4 +86,7 @@
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="star-white" width="15" height="14"/>
+    </resources>
 </document>

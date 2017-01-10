@@ -171,6 +171,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="nav-search" id="E3x-Y2-HZU"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="kFb-2t-1NJ" id="n0U-Qq-9hW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hkV-2l-in9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
