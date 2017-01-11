@@ -31,7 +31,7 @@ class DDBusiness: NSObject, NSCoding {
         let tags = dictionary["tags"] as! Array<String>
         let business = dictionary["business"] as! Dictionary<String, Any>
         let fee = dictionary["delivery_fee"] as! Double
-        let id = business["id"] as! Int
+        let id = dictionary["id"] as! Int
         
         self.id = String(id)
         self.name = business["name"] as! String
